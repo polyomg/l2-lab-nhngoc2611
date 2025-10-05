@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Param Form</title>
+</head>
+
+<body>
+	<form action="/product/save" method="post">
+		<input name="name" placeholder="Name" th:value="${product.name}">
+		<input name="price" placeholder="Price" th:value="${product.price}">
+		<button>Save</button>
+	</form>
+	<ul>
+		<li>Name: <span th:text="${product.name}">?name</span></li>
+		<li>Price: <span th:text="${product.price}">?price</span></li>
+	</ul>
+</body>
+
+</html>
