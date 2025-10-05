@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container mt-5">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white text-center">
+                    <h4>Tính Diện Tích & Chu Vi</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/tinhtoan/tinhToanChuNhat" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Chiều dài:</label>
+                            <input type="number" name="chieuDai" class="form-control" step="0.1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Chiều rộng:</label>
+                            <input type="number" name="chieuRong" class="form-control" step="0.1" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-danger">Tính</button>
+                        
+                    </form>
+                    <div th:if="${dienTich != null}" class="mt-4 alert alert-info">
+                        <p>Diện tích: <span th:text="${dienTich}"></span></p>
+                        <p>Chu vi: <span th:text="${chuVi}"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    
+</div>
+</body>
+</html>
