@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Bai5 - Lab2</title>
+
+</head>
+</head>
+
+<body>
+	<h1>Index bài5 lab2</h1>
+	<br>
+	    <div class="row text-center">
+	        <div class="col-sm-4 mb-3">
+	            <a href="/a" class="btn btn-primary btn-lg">Bài 5 - Forward (A)</a>
+	        </div>
+	        <div class="col-sm-4 mb-3">
+	            <a href="/b" class="btn btn-success btn-lg">Bài 5 - Forward (B)</a>
+	        </div>
+	        <div class="col-sm-4 mb-3">
+	            <a href="/c" class="btn btn-warning btn-lg">Bài 5 - Redirect (C)</a>
+	        </div>
+	        <div class="col-sm-4 mb-3">
+	            <a href="/d" class="btn btn-warning btn-lg">Bài 5 - ResponseBody (D)</a>
+	        </div>
+	    </div>
+	    <hr>
+	    <h1 th:text="${message}"></h1>
+	    <h1 th:text="${param.message}"></h1>
+</body>
+
+</html>
