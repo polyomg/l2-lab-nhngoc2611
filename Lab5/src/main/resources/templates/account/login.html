@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Login</title>
+</head>
+<body>
+<h2>Đăng nhập</h2>
+
+<p style="color:green" th:text="${msg}"></p>
+<p style="color:red" th:text="${err}"></p>
+
+<form action="/account/login" method="post">
+    <div>
+        <label>Username:</label>
+        <input name="username" th:value="${userCookie}">
+    </div>
+    <div>
+        <label>Password:</label>
+        <input name="password" type="password">
+    </div>
+    <div>
+        <label>Remember?</label>
+        <input type="checkbox" name="remember" value="true" th:checked="${remember}">
+    </div>
+    <button>Login</button>
+</form>
+
+<p>
+    <a href="/item/index">Về trang hàng</a> |
+    <a href="/cart/view">Xem giỏ</a>
+</p>
+</body>
+</html>
