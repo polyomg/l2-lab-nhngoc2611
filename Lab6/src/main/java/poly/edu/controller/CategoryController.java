@@ -21,7 +21,7 @@ public class CategoryController {
 		model.addAttribute("item", item);
 		List<Category> items = dao.findAll();
 		model.addAttribute("items", items);
-		return "category/index";
+		return "category/Index";
 	}
 	 @RequestMapping("/category/edit/{id}")
 	    public String edit(Model model, @PathVariable("id") String id) {
@@ -49,4 +49,5 @@ public class CategoryController {
 	        dao.deleteById(id);
 	        return "redirect:/category/index";
 	    }
+
 }
