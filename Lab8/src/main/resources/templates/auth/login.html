@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+</head>
+<body>
+    <h3>Đăng nhập</h3>
+     <ul>
+        <li><a href="/account/edit-profile">edit-profile</a></li>
+        <li><a href="/account/change-password">change-password</a></li>
+        <li><a href="/order/list">list</a></li>
+        <li><a href="/admin/home/index">index</a></li>
+        <label>Bị chặn nếu ko phải là staff</label>
+        <li><a href="/admin/users">admin-users</a></li>
+        <li><a href="/admin/settings">admin-settings</a></li>
+    </ul>
+    
+	<i th:text="${message}">Error message</i>
+    <form action="/auth/login" method="post">
+        <label>Username:</label>
+		<input name="username">
+		<br>
+		<br>
+		<label>Password:</label>
+		<input name="password" type="password">
+		<hr>
+		<button>Login</button>
+    </form>
+    
+    <hr>
+    <h4>Lịch sử truy cập (Logs)</h4>
+        <ul>
+            <li th:each="log : ${session.logs}" th:text="${log}"></li>
+        </ul>
+</body>	
+</html>
