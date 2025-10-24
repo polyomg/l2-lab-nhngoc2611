@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>PAGINATION & SORTING</title>
+</head>
+
+<body>
+    <h3>PAGINATION & SORTING BY <th:block th:text="${field.toUpperCase()}"/></h3>
+    
+	<table border="1" style="width:100%">
+		<tr>
+            <th><a th:href="@{/product/pageandsort(field='id', p=0)}">Id</a></th> 
+			<th><a th:href="@{/product/pageandsort(field='name', p=0)}">Name</a></th>
+			<th><a th:href="@{/product/pageandsort(field='price', p=0)}">Price</a></th>
+			<th><a th:href="@{/product/pageandsort(field='createDate', p=0)}">Date</a></th>
+		</tr>
+        
+        <th:block th:each="item: ${page.content}">
+			<tr>
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.name}"></td>
+				<td th:text="${item.price}"></td>
+				<td th:text="${item.createDate}"></td>
+			</tr>
+		</th:block>
+	</table>
+    
+    <a th:href="@{|/product/pageandsort?p=0&field=${field}|}">First</a>
+	<a th:href="@{|/product/pageandsort?p=${page.number - 1}&field=${field}|}">Previous</a>
+	<a th:href="@{|/product/pageandsort?p=${page.number + 1}&field=${field}|}">Next</a>
+	<a th:href="@{|/product/pageandsort?p=${page.totalPages - 1}&field=${field}|}">Last</a>
+
+	<ul>
+		<li>Số thực thể hiện tại: [[${page.numberOfElements}]]</li>
+		<li>Trang số: [[${page.number}]]</li>
+		<li>Kích thước trang: [[${page.size}]]</li>
+		<li>Tổng số thực thể: [[${page.totalElements}]]</li>
+		<li>Tổng số trang: [[${page.totalPages}]]</li>
+	</ul>
+</body>
+</html>

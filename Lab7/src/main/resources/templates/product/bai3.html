@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tồn Kho Theo Loại</title>
+</head>
+<body>
+    <h1>TỒN KHO THEO LOẠI</h1>
+    
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Loại hàng</th>
+            <th>Tổng giá</th>
+            <th>Số sản phẩm</th>
+        </tr>
+        
+        <tr th:each="item : ${items}">
+            <td th:text="${item.group.name}"></td>
+            <td th:text="${item.sum}"></td>
+            <td th:text="${item.count}"></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search By Price</title>
+    <style>
+        /* Basic styling for the table to match the image */
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        .container {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SEARCH BY PRICE</h1>
+
+        <form action="/product/search" method="get">
+            <input name="min" th:value="${min}" placeholder="Min Price"> 
+            
+            <input name="max" th:value="${max}" placeholder="Max Price"> 
+            
+            <button type="submit">Search</button>
+        </form>
+
+        <br>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${items}">
+                    <td th:text="${item.id}">1013</td>
+                    <td th:text="${item.name}">Konbu</td>
+                    <td th:text="${item.price}">6.0</td>
+                    <td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd')}">2002-07-01</td>
+                </tr>
+                <tr th:if="${items.isEmpty()}">
+                    <td colspan="4">No products found.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
